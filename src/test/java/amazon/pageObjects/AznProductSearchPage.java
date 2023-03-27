@@ -14,7 +14,7 @@ import org.openqa.selenium.Point;
 
 public class AznProductSearchPage extends PageObject {
 
-    @FindBy(id = "twotabsearchtextbox")
+    @FindBy(xpath = "//input[contains(@id, 'search')]")
     public WebElementFacade txtSearch;
     @FindBy(id = "nav-search-submit-button")
     public WebElementFacade btnSearch;
@@ -32,7 +32,7 @@ public class AznProductSearchPage extends PageObject {
     public void applySortFilter(String sortFilter) {
 
 
-
+        drpDwnSortBy.waitUntilVisible();
         drpDwnSortBy.waitUntilEnabled().click();
         $(By.xpath("//a[text()='"+sortFilter+"']")).waitUntilEnabled().click();
 
